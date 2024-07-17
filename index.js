@@ -1,45 +1,64 @@
-// Write your solution here!
-// index.js
+// Employee object and related functions
+const employee = {
+  name: "John Doe",
+  streetAddress: "123 Main St"
+};
 
-// Initial cats array
-let cats = ["Milo", "Otis", "Garfield"];
+function updateEmployeeWithKeyAndValue(employee, key, value) {
+  return Object.assign({}, employee, { [key]: value });
+}
 
-// Function to destructively append a cat
+function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
+  employee[key] = value;
+  return employee;
+}
+
+function deleteFromEmployeeByKey(employee, key) {
+  const newEmployee = Object.assign({}, employee);
+  delete newEmployee[key];
+  return newEmployee;
+}
+
+function destructivelyDeleteFromEmployeeByKey(employee, key) {
+  delete employee[key];
+  return employee;
+}
+
+// Initial cats array and related functions for array manipulation
+const cats = ["Milo", "Otis", "Garfield"];
+
 function destructivelyAppendCat(name) {
   cats.push(name);
+  return cats;
 }
 
-// Function to destructively prepend a cat
 function destructivelyPrependCat(name) {
   cats.unshift(name);
+  return cats;
 }
 
-// Function to destructively remove the last cat
 function destructivelyRemoveLastCat() {
   cats.pop();
+  return cats;
 }
 
-// Function to destructively remove the first cat
 function destructivelyRemoveFirstCat() {
   cats.shift();
+  return cats;
 }
 
-// Function to append a cat and return a new array
 function appendCat(name) {
   return [...cats, name];
 }
 
-// Function to prepend a cat and return a new array
 function prependCat(name) {
   return [name, ...cats];
 }
 
-// Function to remove the last cat and return a new array
 function removeLastCat() {
   return cats.slice(0, -1);
 }
 
-// Function to remove the first cat and return a new array
 function removeFirstCat() {
   return cats.slice(1);
 }
